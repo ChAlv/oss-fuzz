@@ -17,13 +17,14 @@
 ################################################################################
 
 cd mysql-server
-git pull origin fuzzing
+git pull origin fuzzing_stmt_prepare
 
 mkdir build
 cd build
 cmake .. -DDOWNLOAD_BOOST=1 -DWITH_BOOST=$WORK -DWITH_SSL=system -DDISABLE_SHARED=0 -DFUZZING=1 #Il y a aussi DWITHOUT_SERVER à considérer...
 make GenError -j$(nproc)
-make fuzzing_network_1 -j$(nproc)
+make fuzzing_stmt_prepare -j$(nproc)
+make fuzz_router_uri -j$(nproc)
 
 rm $SRC/mysql-server/build/bin/comp_err
 cp $SRC/mysql-server/build/bin/* $OUT
