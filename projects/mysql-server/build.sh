@@ -24,7 +24,7 @@ cd build
 cmake .. -DDOWNLOAD_BOOST=1 -DWITH_BOOST=$WORK -DWITH_SSL=system -DDISABLE_SHARED=0 -DFUZZING=1 #Il y a aussi DWITHOUT_SERVER à considérer...
 make GenError -j$(nproc)
 make fuzzing_stmt_prepare -j$(nproc)
-make fuzz_router_uri -j$(nproc)
+make fuzz_stmt_prepare -j$(nproc)
 
 rm $SRC/mysql-server/build/bin/comp_err
 cp $SRC/mysql-server/build/bin/* $OUT
