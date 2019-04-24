@@ -22,8 +22,11 @@ cd build
 cmake .. -DDOWNLOAD_BOOST=1 -DWITH_BOOST=$WORK -DWITH_SSL=system -DFUZZING=1 
 make GenError -j$(nproc)
 make fuzz_network_1 -j$(nproc)
-#make fuzzing_stmt_prepare -j$(nproc)
-#make fuzz_stmt_prepare -j$(nproc)
+make fuzzing_stmt_prepare -j$(nproc)
+make fuzzing_stmt_fetch -j$(nproc)
+make fuzzing_real_query -j$(nproc)
+make fuzzing_stmt_execute -j$(nproc)
+
 
 rm $SRC/mysql-server/build/bin/comp_err
 cp $SRC/mysql-server/build/bin/* $OUT
