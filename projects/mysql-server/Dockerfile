@@ -17,9 +17,7 @@
 FROM gcr.io/oss-fuzz-base/base-builder
 MAINTAINER security@mysql.com
 RUN apt-get update
-RUN apt-get install -y build-essential libssl-dev
-RUN apt-get install -y libncurses5-dev libncursesw5-dev
-RUN apt-get install -y make cmake perl bison
+RUN apt-get install -y build-essential libssl-dev libncurses5-dev libncursesw5-dev make cmake perl bison
 RUN git clone --depth 1 --branch "fuzzing" https://github.com/ChAlv/mysql-server
 WORKDIR $SRC
 COPY build.sh $SRC/

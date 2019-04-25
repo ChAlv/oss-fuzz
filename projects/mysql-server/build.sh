@@ -19,7 +19,8 @@
 cd mysql-server
 mkdir build
 cd build
-cmake .. -DDOWNLOAD_BOOST=1 -DWITH_BOOST=$WORK -DWITH_SSL=system -DFUZZING=1 
+cmake .. -DDOWNLOAD_BOOST=1 -DWITH_BOOST=$WORK -DWITH_SSL=system -DFUZZING=1
+ 
 make GenError -j$(nproc)
 make fuzz_network_1 -j$(nproc)
 #make fuzzing_stmt_prepare -j$(nproc)
